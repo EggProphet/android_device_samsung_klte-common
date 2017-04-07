@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,9 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),klte)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-endif
+case $BOOTLOADER in
+  G900R*)      VARIANT="usc" ;;
+  G900V*)      VARIANT="vzw" ;;
+  *)           VARIANT="gsm" ;;
+esac
